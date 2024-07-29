@@ -1,0 +1,33 @@
+package com.company;
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class array_find_element {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        System.out.println("Enter value of n");
+        int n=sc.nextInt();
+
+        int[] arr;
+        arr=new int[n];
+        for (int i=0;i<n;i++)
+        {
+            System.out.println("Enter the value of "+i+" place in array");
+            arr[i]=sc.nextInt();
+        }
+
+        System.out.println("Enter element to search");
+        int a=sc.nextInt();
+        
+        int index = -1;
+        for(int i=0;i<n;i++)
+        {
+           if (arr[i]==a)
+           {
+               index=i;
+           }
+        }
+        System.out.println("The index of "+a+" is "+index);
+    }
+}
