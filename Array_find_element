@@ -26,6 +26,7 @@ public class array_find_element {
            if (arr[i]==a)
            {
                index=i;
+               break;
            }
         }
         System.out.println("The index of "+a+" is "+index);
