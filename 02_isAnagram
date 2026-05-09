@@ -1,0 +1,62 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+        // // method 1
+
+        // // will use hashmap and count the characters for the first string
+
+        // // then will decrement as we get the characters in the second string..
+        // // if the final counting of all the characters is 0 then it is anagram
+        // // else not
+
+        // // if the length is not same then return false
+        // if(s.length()!=t.length()) return false;
+
+        // HashMap<Character,Integer> hm=new HashMap<>();
+
+        // for(int i=0;i<s.length();i++){
+        //     hm.put(s.charAt(i),hm.getOrDefault(s.charAt(i),0)+1);
+
+        // }
+
+        // for(int j=0;j<t.length();j++){
+        //     if (!hm.containsKey(t.charAt(j))) {
+        //         return false; // Early Exit! 
+            
+        //     }
+            
+        //         hm.put(t.charAt(j),hm.get(t.charAt(j))-1);
+            
+        // }
+
+        // for (int count : hm.values()) {
+        //      if (count != 0) return false; 
+        // }
+
+        // return true;
+
+
+
+        // method 2
+
+        // use 26 size array
+
+        if(s.length()!=t.length()) return false;
+
+        int charCounts[] = new int[26];
+
+        for(int i=0;i<s.length();i++){
+            charCounts[s.charAt(i)-'a']++;
+            charCounts[t.charAt(i)-'a']--;
+        }
+
+        // check if all counts balanced to 0
+        for(int nums:charCounts){
+            if(nums!=0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
